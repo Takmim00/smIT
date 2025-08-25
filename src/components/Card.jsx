@@ -6,7 +6,9 @@ const Card = () => {
   useEffect(() => {
     const fetchDesert = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/dessert");
+        const res = await axios.get(
+          "https://task-project-server-five.vercel.app/dessert"
+        );
         setDesert(res.data);
         console.log(res);
       } catch (err) {

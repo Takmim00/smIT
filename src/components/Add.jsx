@@ -4,7 +4,7 @@ import { MdOutlineBallot } from "react-icons/md";
 import Card from "./Card";
 
 const Add = () => {
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
 
@@ -14,15 +14,18 @@ const Add = () => {
 
     console.log(title, subTitle, price);
     const addData = {
-        title,
-        subTitle,
-        price
+      title,
+      subTitle,
+      price,
     };
-    try{
-        const {data} = await axios.post("http://localhost:5000/add-dessert",addData)
-        console.log(data);
-    }catch(err){
-        console.log(err);
+    try {
+      const { data } = await axios.post(
+        "https://task-project-server-five.vercel.app/add-dessert",
+        addData
+      );
+      console.log(data);
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
@@ -65,7 +68,7 @@ const Add = () => {
           </div>
         </div>
       </div>
-      <Card/>
+      <Card />
       {/* Open the modal using document.getElementById('ID').showModal() method */}
 
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
@@ -82,9 +85,7 @@ const Add = () => {
             <p>Dishes Price :</p>
             <input type="number" name="price" id="" className="input" />
           </div>
-         
 
-          
           <button className="btn">ADD Dishes</button>
         </form>
       </dialog>
